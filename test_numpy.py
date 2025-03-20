@@ -40,67 +40,67 @@ EXPECTED_Q4_1 = np.zeros(10)
 EXPECTED_Q4_2 = np.ones(6)
 
 # Q5: Extract third column from 2D array.
-input_q5 = np.array([[11, 22, 33], [44, 55, 66], [77, 88, 99]])
+input_q5 = np.random.randint(10, 100, size=(3, 3))
 EXPECTED_Q5 = input_q5[:, 2]
 
 # Q6: Array of shape (3,4) filled with 64-bit integer zeros.
 EXPECTED_Q6 = np.zeros((3, 4), dtype=np.int64)
 
-# Q7: Split array into 3 equal sub-arrays.
-arr_q7 = np.arange(7, 34, 1).reshape(9, 3)
+# Q7: Split array into 3 equal sub-arrays with randomized integers.
+arr_q7 = np.random.randint(10, 100, size=(9, 3))
 EXPECTED_Q7 = np.split(arr_q7, 3)
 
 # Q8: Return last two elements of all but the last row of a (3,4) array.
-input_q8 = np.arange(1, 13, 1).reshape(3, 4)
+input_q8 = np.random.randint(1, 100, size=(3, 4))
 EXPECTED_Q8 = input_q8[:-1, -2:]
 
 # Q9: Count elements greater than 5.
-input_q9 = np.arange(1, 13, 1).reshape(3, 4)
+input_q9 = np.random.randint(1, 20, size=(3, 4))
 EXPECTED_Q9 = (input_q9 > 5).sum()
 
 # Q10: Delete second column and insert a new column.
-input_q10 = np.array([[34, 72, 33], [82, 22, 32], [59, 84, 10]])
-insert_data = np.array([[37, 37, 37]])
+input_q10 = np.random.randint(10, 100, size=(3, 3))
+insert_data = np.random.randint(10, 100, size=(1, 3))
 temp_q10 = np.delete(input_q10, 1, axis=1)
 EXPECTED_Q10 = np.insert(temp_q10, 1, insert_data, axis=1)
 
 # Q11: Compute Euclidean distances between consecutive points and append as a new column.
-input_q11 = np.array([[1, 2], [4, 6], [7, 8], [10, 10]])
+input_q11 = np.random.randint(1, 20, size=(4, 2))
 diffs = np.diff(input_q11, axis=0)
 distance = np.sqrt(np.sum(diffs ** 2, axis=1))
 distance = np.append(distance, np.nan)  # Pad the last row with NaN.
 EXPECTED_Q11 = np.column_stack((input_q11, distance))
 
 # Q12: Remove consecutive duplicate rows.
-input_q12 = np.array([[1, 1], [2, 1], [3, 3], [3, 3], [2, 1], [1, 1]])
+input_q12 = np.random.randint(1, 5, size=(6, 2))
 mask = np.insert(np.any(input_q12[1:] != input_q12[:-1], axis=1), 0, True)
 EXPECTED_Q12 = input_q12[mask]
 
 # Q13: Normalize a 2D array (avoid division by zero).
-input_q13 = np.array([[10, 20, 30], [15, 24, 33], [8, 18, 29], [14, 22, 32]])
+input_q13 = np.random.randint(10, 50, size=(4, 3))
 EXPECTED_Q13 = (input_q13 - np.mean(input_q13, axis=0)) / np.std(input_q13, axis=0)
 
 # Q14: Delete second column and insert a new column with row sums.
-input_q14 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+input_q14 = np.random.randint(1, 10, size=(3, 3))
 row_sums = np.sum(input_q14, axis=1)
 temp_q14 = np.delete(input_q14, 1, axis=1)
 EXPECTED_Q14 = np.insert(temp_q14, 1, row_sums, axis=1)
 
 # Q15: Extract unique characters from a NumPy array of strings.
-input_q15 = np.array(["hello", "world", "numpy", "rocks"])
+input_q15 = np.array(["python", "data", "science", "rocks"])
 EXPECTED_Q15 = set(sorted("".join(input_q15)))
 
 # Q16: Map unique characters to unique indices sorted by ASCII.
-input_q16 = np.array(["a", "b", "c", "d", "a", "c", "e"])
+input_q16 = np.array([chr(i) for i in np.random.randint(97, 123, size=10)])
 EXPECTED_Q16 = {k: v for v, k in enumerate(sorted(set(input_q16)))}
 
 # Q17: Stack a list of 2D traces into a single array.
-input_q17 = [np.array([[1, 2], [3, 4]]), np.array([[5, 6], [7, 8], [9, 10]])]
+input_q17 = [np.random.randint(1, 10, size=(2, 2)), np.random.randint(1, 10, size=(3, 2))]
 EXPECTED_Q17 = np.vstack(input_q17)
 
 # Q18: Convert a list of text labels into an array of integer encodings.
-vocab = {'hello': 0, 'numpy': 1, 'rocks': 2, 'world': 3, 'python': 4, 'data': 5, 'science': 6}
-labels = "hello rocks"
+vocab = {'apple': 0, 'banana': 1, 'cherry': 2, 'date': 3, 'elderberry': 4, 'fig': 5, 'grape': 6}
+labels = "apple cherry grape"
 EXPECTED_Q18 = np.array([vocab[label] for label in labels.split()])
 
 # Q19: Extract non-zero differences from an array.
@@ -109,13 +109,8 @@ mask_q19 = np.all(input_q19 == 0, axis=1)
 EXPECTED_Q19 = input_q19[~mask_q19]
 
 # Q20: Time Series Data Transformation and Feature Engineering.
-input_q20 = np.array([
-    [1.0, 10.0, 100.0],
-    [2.0, 20.0, 200.0],
-    [3.0, 30.0, 10000.0],  # Outlier in third column
-    [4.0, 40.0, 400.0],
-    [5.0, 50.0, 500.0]
-])
+input_q20 = np.random.uniform(1.0, 100.0, size=(5, 3))
+input_q20[2][2] = 10000.0
 mean_data = np.mean(input_q20, axis=0)
 std_data = np.std(input_q20, axis=0)
 std_data[std_data == 0] = 1
