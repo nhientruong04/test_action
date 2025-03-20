@@ -129,38 +129,31 @@ EXPECTED_Q20 = np.hstack((interpolated_data, first_order_diff_padded, missing_fl
 
 # --- Pytest Test Functions ---
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_1():
     sol = question_1()
     np.testing.assert_array_equal(sol, EXPECTED_Q1)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_2():
     sol = question_2()
     np.testing.assert_array_equal(sol, EXPECTED_Q2)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_3():
     sol = question_3()
     np.testing.assert_array_equal(sol, EXPECTED_Q3)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_4():
     sol1, sol2 = question_4()
     np.testing.assert_array_equal(sol1, EXPECTED_Q4_1)
     np.testing.assert_array_equal(sol2, EXPECTED_Q4_2)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_5():
     sol = question_5(input_q5)
     np.testing.assert_array_equal(sol, EXPECTED_Q5)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_6():
     sol = question_6()
     np.testing.assert_array_equal(sol, EXPECTED_Q6)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_7():
     sol = question_7(arr_q7)
     # Ensure the output is a list of three arrays.
@@ -169,67 +162,54 @@ def test_question_7():
     for a, b in zip(sol, EXPECTED_Q7):
         np.testing.assert_array_equal(a, b)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_8():
     sol = question_8(input_q8)
     np.testing.assert_array_equal(sol, EXPECTED_Q8)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_9():
     sol = question_9(input_q9)
     assert sol == EXPECTED_Q9
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_10():
     sol = question_10(input_q10, insert_data)
     np.testing.assert_array_equal(sol, EXPECTED_Q10)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_11():
     sol = question_11(input_q11)
     np.testing.assert_allclose(sol, EXPECTED_Q11, equal_nan=True)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_12():
     sol = question_12(input_q12)
     np.testing.assert_array_equal(sol, EXPECTED_Q12)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_13():
     sol = question_13(input_q13)
     np.testing.assert_allclose(sol, EXPECTED_Q13)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_14():
     sol = question_14(input_q14)
     np.testing.assert_array_equal(sol, EXPECTED_Q14)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_15():
     sol = question_15(input_q15)
     assert sol == EXPECTED_Q15
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_16():
     sol = question_16(input_q16)
     assert sol == EXPECTED_Q16
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_17():
     sol = question_17(input_q17)
     np.testing.assert_array_equal(sol, EXPECTED_Q17)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_18():
     sol = question_18(vocab, labels)
     np.testing.assert_array_equal(sol, EXPECTED_Q18)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_19():
     sol = question_19(input_q19)
     np.testing.assert_array_equal(sol, EXPECTED_Q19)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_20():
     sol = question_20(input_q20)
     np.testing.assert_allclose(sol, EXPECTED_Q20, equal_nan=True)
