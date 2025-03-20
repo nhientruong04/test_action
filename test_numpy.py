@@ -68,7 +68,7 @@ EXPECTED_Q10 = np.insert(temp_q10, 1, insert_data, axis=1)
 input_q11 = np.random.randint(1, 20, size=(4, 2))
 diffs = np.diff(input_q11, axis=0)
 distance = np.sqrt(np.sum(diffs ** 2, axis=1))
-distance = np.append(distance, np.nan)  # Pad the last row with NaN.
+distance = np.append(distance, 0)  # Pad the last row with 0.
 EXPECTED_Q11 = np.column_stack((input_q11, distance))
 
 # Q12: Remove consecutive duplicate rows.
@@ -221,7 +221,7 @@ def test_question_17():
 
 @pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_question_18():
-    sol = question_18(vocab)
+    sol = question_18(vocab, labels)
     np.testing.assert_array_equal(sol, EXPECTED_Q18)
 
 @pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
