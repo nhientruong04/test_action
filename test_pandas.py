@@ -149,48 +149,39 @@ EXPECTED_Q20 = input_q20.head(100)['main_ingredient']
 
 # --- Pytest Test Functions ---
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_1():
     sol = exercise_1(Q1_A, Q1_B)
     pd.testing.assert_frame_equal(sol, EXPECTED_Q1)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_2():
     sol = exercise_2(Q2_SER1, Q2_SER2)
     pd.testing.assert_frame_equal(sol, EXPECTED_Q2)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_3():
     sol = exercise_3(Q3_A, Q3_B)
     np.testing.assert_array_equal(np.sort(sol.values), np.sort(EXPECTED_Q3.values))
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_4():
     sol = exercise_4(dataset1)
     pd.testing.assert_series_equal(sol, EXPECTED_Q4, check_names=False, check_exact=True)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_5():
     sol = exercise_5(dataset1)
     pd.testing.assert_series_equal(sol, EXPECTED_Q5, check_names=False, check_exact=True)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_6():
     sol = exercise_6(dataset1)
     assert sol == EXPECTED_Q6
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_7():
     sol = exercise_7(dataset2)
     
     assert sol == EXPECTED_Q7
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_8():
     sol = exercise_8(dataset2)
     np.testing.assert_array_equal(sol, EXPECTED_Q8)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_9():
     sol = exercise_9(dataset2)
     
@@ -198,67 +189,56 @@ def test_exercise_9():
     assert sol.index.dtype == 'datetime64[ns]', "Not datetime64"
     np.testing.assert_array_equal(sol.index.values, EXPECTED_Q9.index.values)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_10():
     sol = exercise_10(dataset2)
     pd.testing.assert_frame_equal(sol, EXPECTED_Q10)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_11():
     sol = exercise_11(dataset2)
     
     assert sol == EXPECTED_Q11
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_12():
     sol = exercise_12(dataset2)
     
     assert abs(sol-EXPECTED_Q12) <= 1e-2
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_13():
     sol = exercise_13(dataset3)
     
     assert sol == EXPECTED_Q13
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_14():
     sol = exercise_14(dataset3)
 
     pd.testing.assert_series_equal(sol, EXPECTED_Q14, check_names=False, atol=2e-2)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_15():
     sol = exercise_15(dataset3)
 
     pd.testing.assert_series_equal(sol, EXPECTED_Q15, check_names=False)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_16():
     sol = exercise_16(dataset3)
     
     pd.testing.assert_series_equal(sol, EXPECTED_Q16, check_names=False)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_17():
     sol = exercise_17(dataset3)
     pd.testing.assert_frame_equal(sol, EXPECTED_Q17)
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_18():
     sol = exercise_18(dataset3)
     
     assert len(sol.columns) == len(EXPECTED_Q18.columns), "Column mismatch"
     assert sol.index.name == 'categories', "Index column must be 'categories'"
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_19():
     sol = exercise_19(dataset3, processed_keywords)
     
     assert abs(sol[0] - EXPECTED_Q19[0]) <= 1e-3
     assert abs(sol[1] - EXPECTED_Q19[1]) <= 1e-3
 
-@pytest.mark.xfail(raises=NotImplementedError, reason="Feature not implemented yet")
 def test_exercise_20():
     sol = exercise_20(dataset3)
     pd.testing.assert_series_equal(sol, EXPECTED_Q20, check_names=False)
