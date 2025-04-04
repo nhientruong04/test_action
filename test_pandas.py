@@ -5,13 +5,34 @@ import random
 import numpy as np
 import pandas as pd
 import pytest
+import re
+
+def clean_exercise_file(input_path="exercises.py", output_path="exercises_cleaned.py"):
+    with open(input_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    patterns = [
+        re.compile(r"^\s*ex\d+_sol\s*=\s*exercise_\d+\(.*?\)\s*$"),  # ex1_sol = exercise_1(...)
+        re.compile(r"^\s*q\d+\.check\(\)\s*$"),                      # q1.check()
+        re.compile(r"^\s*\w+\s*=\s*pd\.read_csv\(.*?\)\s*$"),        # df = pd.read_csv(...)
+    ]
+
+    cleaned_lines = [line for line in lines if not any(p.match(line) for p in patterns)]
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.writelines(cleaned_lines)
+
+    print(f"Cleaned file written to: {output_path}")
+
+
+clean_exercise_file()
 
 # Set up random generators using an integer seed.
 random.seed(42)
 np.random.seed(42)
 
 # --- Import student functions from your exercises module ---
-from exercises import (
+from exercises_cleaned import (
     exercise_1, exercise_2, exercise_3, exercise_4, exercise_5,
     exercise_6, exercise_7, exercise_8, exercise_9, exercise_10,
     exercise_11, exercise_12, exercise_13, exercise_14, exercise_15,
