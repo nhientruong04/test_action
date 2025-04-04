@@ -61,8 +61,8 @@ Q2_SER2 = pd.Series(range(7))
 EXPECTED_Q2 = pd.DataFrame({'ser1': Q2_SER1, 'ser2': Q2_SER2})
 
 # Q3: How to get the items not common to both series A and series B?
-Q3_A = np.random.randint(low=50, high=70, size=(20))
-Q3_B = np.random.randint(low=40, high=60, size=(20))
+Q3_A = pd.Series(np.random.randint(low=50, high=70, size=(20)))
+Q3_B = pd.Series(np.random.randint(low=40, high=60, size=(20)))
 ser_u = pd.Series(np.union1d(Q3_A, Q3_B))  # union
 ser_i = pd.Series(np.intersect1d(Q3_A, Q3_B))  # intersect
 EXPECTED_Q3 = ser_u[~ser_u.isin(ser_i)]
