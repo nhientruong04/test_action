@@ -129,7 +129,7 @@ EXPECTED_Q13 = dataset3['product_name'].nunique()
 EXPECTED_Q14 = ((dataset3.isnull().sum() / len(dataset3)) * 100).round(2)
 
 # Q15: Identify the top 5 manufacturers based on the number of unique products.
-EXPECTED_Q15 = dataset3['brands'].value_counts().head(5)
+EXPECTED_Q15 = dataset3.groupby(by="brands", dropna=True)["product_name"].nunique().sort_values(ascending=False).head(5)
 
 # Q16: Find the most common food additives used in products across all countries.
 EXPECTED_Q16 = dataset3['additives'].str.split(',').explode().value_counts().head(10)
