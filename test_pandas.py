@@ -89,7 +89,7 @@ EXPECTED_Q5 = dataset1['Sale'].fillna(round(dataset1['Sale'].mean()))
 # Q6: How many products are there which can be identified with "ID"?
 EXPECTED_Q6 = dataset1['ID'].nunique()
 
-dataset2 = pd.read_csv("dataset/dataset2.csv")
+dataset2 = pd.read_csv("./dataset/dataset2.csv")
 
 # Q7: How many years of crime data are collected in the dataset?
 EXPECTED_Q7 = dataset2['Year'].nunique()
