@@ -89,7 +89,7 @@ EXPECTED_Q5 = dataset1['Sale'].fillna(round(dataset1['Sale'].mean()))
 # Q6: How many products are there which can be identified with "ID"?
 EXPECTED_Q6 = dataset1['ID'].nunique()
 
-dataset2 = pd.read_csv("./dataset/dataset2.csv")
+dataset2 = pd.read_csv("https://raw.githubusercontent.com/nhientruong04/pandas-dataset/refs/heads/master/dataset2.csv")
 
 # Q7: How many years of crime data are collected in the dataset?
 EXPECTED_Q7 = dataset2['Year'].nunique()
@@ -120,7 +120,7 @@ end = input_q12.loc[input_q12['Year'] == 2014, 'Robbery'].values[0]
 percentage_change = ((end - start) / start) * 100
 EXPECTED_Q12 = round(percentage_change,2)
 
-dataset3 = pd.read_csv('dataset/open-food-facts-sample.csv', dtype={"code": str}, index_col="code")
+dataset3 = pd.read_csv('https://raw.githubusercontent.com/nhientruong04/pandas-dataset/refs/heads/master/open-food-facts-sample.csv', dtype={"code": str}, index_col="code")
 
 # Q13: How many unique products are available in the dataset?
 EXPECTED_Q13 = dataset3['product_name'].nunique()
