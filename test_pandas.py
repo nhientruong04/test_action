@@ -12,9 +12,9 @@ def clean_exercise_file(input_path="exercises.py", output_path="exercises_cleane
         lines = f.readlines()
 
     patterns = [
-        re.compile(r"^\s*ex\d+_sol\s*=\s*exercise_\d+\(.*?\)\s*$"),  # ex1_sol = exercise_1(...)
-        re.compile(r"^\s*q\d+\.check\(\)\s*$"),                      # q1.check()
-        re.compile(r"^\s*\w+\s*=\s*pd\.read_csv\(.*?\)\s*$"),        # df = pd.read_csv(...)
+        re.compile(r"^\s*ex\d+_sol\s*=.*$"),  # ex1_sol = exercise_1(...)
+        re.compile(r"^\s*q\d+\.check\(\).*$"),                      # q1.check()
+        re.compile(r"^\s*\w+\s*=\s*pd\.read_csv\(.*?\).*$"),        # df = pd.read_csv(...)
     ]
 
     cleaned_lines = [line for line in lines if not any(p.match(line) for p in patterns)]
